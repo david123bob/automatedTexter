@@ -1,0 +1,29 @@
+Currently this code only works for automating sending emails and texts will only work if you ask for 
+provider beforehand. Working on a fix but prob will try diffrent method
+
+ Before use must ensure gmail has enabled third party addons
+ to do this go to https://myaccount.google.com/ -> security -> enable two step verifcation
+ once you are done click on two step verification again -> app passwords ->name it anything (name doesnt matter)
+ it will give you a temporary password like irpx bpmu ozne fybr 
+ you will put this information in sender_credentials with the first variable being username and 2nd variable
+ being the temporary password
+
+Now for the file there are multiple options. If you made a google form go to view in sheets. Next click on 
+share, make sure its editor and finally get the link. It should look like this
+:https://docs.google.com/spreadsheets/d/14G4rlx1aTXdQ--nQ4Ltbpc8XDQu6RUVs71xvOHYdP5Q/edit?usp=sharing
+Now you want to take everything before the d/ so 14G4rlx1aTXdQ--nQ4Ltbpc8XDQu6RUVs71xvOHYdP5Q/edit?usp=sharing
+ and put it into sheet id. Finally change the column that contains the emails to email instead of the question
+
+If you have donwloaded the csv file (excel file) put it into folder, remove sheet id and simply set 
+df=pd.read_csv(fileName). Finally change the column that contains the emails to email instead of the question
+
+Now you can simply change what the message and subject is and run the code to send out emails. Note emails
+will fail if they fail to include a email or spell it wrong 
+
+For phone numbers I am still working on it having difficulties.
+
+Extra:If you want to send a email with attchments that will require more effort so here the instructions below:
+Instead of send_email you will use send_email_attachments and it will require 1 extra parameters which is 
+simplify the file names. Note you should put the file in the same folder as the code. 
+
+
